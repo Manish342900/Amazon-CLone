@@ -9,7 +9,7 @@ import { DeliveryProvider } from "./Components/CheckOut/delivery";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Amazon-Clone" >
       <CartProvider>
         <DeliveryProvider>
           <Header />
