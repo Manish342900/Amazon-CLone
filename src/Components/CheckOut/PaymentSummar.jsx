@@ -9,10 +9,10 @@ export default function PaymentSummar({ }) {
   const [tax, setTax] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const { delivery } = useDelivery(); 
-  const {cartItems,updateCart,setFinalOrder,quantity,finalOrder} =useCart()
+  const {cartItems,updateCart,updateFinalOrder,quantity,finalOrder} =useCart()
 
   function emptyCart(){
-    setFinalOrder(cartItems)
+    updateFinalOrder(cartItems,totalPrice)
  
     updateCart([])
   }
@@ -30,7 +30,7 @@ export default function PaymentSummar({ }) {
     cartItems.forEach((item) => {
     
       const deliveryOption = delivery.find(option => option.id == item.deliveryOption);
-      console.log(deliveryOption)
+      
       if (deliveryOption) {
         totalShipping += deliveryOption.priceCents /100; 
       }
@@ -51,7 +51,6 @@ export default function PaymentSummar({ }) {
 
   }, [cartItems, delivery]);
 
-  useEffect(()=>console.log(finalOrder),[finalOrder])
 
 
   return (

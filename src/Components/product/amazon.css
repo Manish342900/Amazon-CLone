@@ -13,13 +13,13 @@
 
 @media (max-width: 1300px) {
   .products-grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 @media (max-width: 1000px) {
   .products-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -124,4 +124,17 @@
   width: 100%;
   padding: 8px;
   border-radius: 50px;
+  cursor: pointer;
+}
+.add-to-cart-button {
+ 
+  transition: background-color 0.3s ease;  /* Smooth transition */
+}
+
+.add-to-cart-button:hover {
+  background-color: #cc7a00;  /* Darker shade on hover */
+}
+.add-to-cart-button:active {
+  background-color: rgb(254,189,105);  /* Change color when clicked */
+  transform: scale(0.95); /* Optional: Shrinks the button a little on click for feedback */
 }

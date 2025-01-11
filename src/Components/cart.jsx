@@ -8,10 +8,18 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [quantity,setQuantity]=useState(0)
   const [finalOrder,setFinalOrder]=useState()
+  const [total,setTotal]=useState(0)
+
   
 
   const updateCart = (newItems) => {
     setCartItems(newItems);
+  };
+
+  function updateFinalOrder (newItems,value) {
+    setTotal(value)
+    
+    setFinalOrder(newItems);
   };
 
   useEffect(()=>{
@@ -26,7 +34,7 @@ export const CartProvider = ({ children }) => {
   
 
   return (
-    <CartContext.Provider value={{ cartItems, updateCart,quantity,setFinalOrder,finalOrder }}>
+    <CartContext.Provider value={{ cartItems, updateCart,quantity,updateFinalOrder,finalOrder,total }}>
       {children}
     </CartContext.Provider>
   );

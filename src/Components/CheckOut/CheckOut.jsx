@@ -17,16 +17,17 @@ export default function CheckOut() {
   return (
     <div>
       <CheckOutHeader />
-            <div className="main">
+            <div className="maint">
               <div className="page-title">Review your order</div>
               <div className="checkout-grid">
                 <div className="order-summary">
                   <OrderSummary cartItems={cartItems} update={updateCart} />
                 </div>
-              </div>
-              <div className="payment-summary">
+                <div className="payment-summary">
                 <PaymentSummar cartItems={cartItems} quantity={quantity} />
               </div>
+              </div>
+              
             </div>
     </div>
   );

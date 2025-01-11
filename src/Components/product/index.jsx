@@ -18,7 +18,7 @@ export default function Index() {
   async function fectchProducts() {
     const response = await fetch('https://dummyjson.com/products')
     const data = await response.json()
-   
+    console.log(data)
 
     setProducts(data.products)
   }
@@ -46,7 +46,7 @@ export default function Index() {
 
   useEffect(() => {
     fectchProducts()
-  },)
+  }, [])
 
 
 
@@ -77,8 +77,10 @@ export default function Index() {
                   </div>
 
                   <div className="product-quantity-container">
-                    <select value={selectedValue} onChange={(e)=>handleChange(e,product.id)}>
-                      <option selected value="1">1</option>
+                    <select value={selectedValue[product.id]?.value
+
+                    } onChange={(e)=>handleChange(e,product.id)}>
+                      <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
