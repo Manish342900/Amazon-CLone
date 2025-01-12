@@ -1,4 +1,3 @@
-import React from 'react';
 import './amazon-header.css';
 import Search from "../../images/icons/search-icon.png"
 import CartIcon from "../../images/icons/cart-icon.png"
@@ -6,10 +5,12 @@ import Logo from "../../images/amazon-logo-white.png"
 import LogoMobile from "../../images/amazon-mobile-logo-white.png"
 import { Link } from 'react-router-dom';
 import { useCart } from '../cart';
+import { useInput } from './Input';
 
 
 export default function Header() {
     const{quantity}=useCart()
+    const {input,updateInput}=useInput()
   
    
   return (
@@ -23,7 +24,7 @@ export default function Header() {
         </div>
 
         <div className="amazon-header-middle-section">
-          <input className="search-bar" type="text" placeholder="Search" />
+          <input className="search-bar" type="text" placeholder="Search" value={input} onChange={(e)=>updateInput(e.target.value)}/>
 
           <button className="search-button">
             <img className="search-icon" src={Search} alt="Search Icon" />

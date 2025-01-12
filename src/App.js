@@ -6,20 +6,22 @@ import Index from "./Components/product";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { DeliveryProvider } from "./Components/CheckOut/delivery";
+import { InputProvider } from "./Components/Header/Input";
 
 function App() {
   return (
     <Router basename="/Amazon-Clone" >
       <CartProvider>
         <DeliveryProvider>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/checkout" element={<CheckOut />} />
-            <Route path="/order" element={<Order />} />
-          </Routes>
+          <InputProvider>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/checkout" element={<CheckOut />} />
+              <Route path="/order" element={<Order />} />
+            </Routes>
+          </InputProvider>
         </DeliveryProvider>
-
       </CartProvider>
     </Router>
   );
